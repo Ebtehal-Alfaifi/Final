@@ -82,5 +82,10 @@ public class VendorService {
 
 
 
+  //end point to get all product that has a less than 5
+
+
+    //send notification if stock has 0 product
+
 
 }

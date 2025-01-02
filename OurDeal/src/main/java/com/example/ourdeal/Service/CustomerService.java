@@ -45,7 +45,7 @@ public class CustomerService {
     }
 
 
-    public void updateVendore(Integer customerId,CustomerDto customerDto ){
+    public void updateCustomer(Integer customerId,CustomerDto customerDto ){
 
         MyUser oldUser=authRepository.findMyUserById(customerId);
         if (oldUser==null){
