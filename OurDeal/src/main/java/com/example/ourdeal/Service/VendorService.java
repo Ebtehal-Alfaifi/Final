@@ -4,11 +4,14 @@ import com.example.ourdeal.Api.ApiException;
 import com.example.ourdeal.DTOin.VendorDto;
 import com.example.ourdeal.Model.MyUser;
 import com.example.ourdeal.Model.Vendor;
+import com.example.ourdeal.Model.VendorProfile;
 import com.example.ourdeal.Repository.AuthRepository;
 import com.example.ourdeal.Repository.VendorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -86,6 +89,11 @@ public class VendorService {
 
 
     //send notification if stock has 0 product
+
+
+
+
+
 
 
 }

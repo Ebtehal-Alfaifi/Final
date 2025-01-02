@@ -2,6 +2,7 @@ package com.example.ourdeal.Service;
 
 import com.example.ourdeal.Api.ApiException;
 import com.example.ourdeal.DTOin.VendorProfileDto;
+import com.example.ourdeal.DTOout.VendorProfileDtoOut;
 import com.example.ourdeal.Model.Vendor;
 import com.example.ourdeal.Model.VendorProfile;
 import com.example.ourdeal.Repository.AuthRepository;
@@ -10,6 +11,7 @@ import com.example.ourdeal.Repository.VendorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -72,6 +74,30 @@ public class VendorProfileService {
 
 
 
+
+
+
+
+
+
+
+    //endPoint get vendor by city
+    public List<VendorProfileDtoOut> getVendorByCity(String city) {
+        List<VendorProfile> vendorProfiles = vendorProfileRepository.findVendorProfileByCity(city);
+        if (vendorProfiles == null || vendorProfiles.isEmpty()) {
+            throw new ApiException("There is no vendor in that city");
+        }
+
+        List<VendorProfileDtoOut> vendorProfileDtos = new ArrayList();
+        for (VendorProfile vendorProfile : vendorProfiles) {
+            VendorProfileDtoOut dto = new VendorProfileDtoOut();
+            dto.setName(vendorProfile.getName());
+            dto.setPhoneNumber(vendorProfile.getPhoneNumber());
+            vendorProfileDtos.add(dto);
+        }
+
+        return vendorProfileDtos;
+    }
 
 
 
